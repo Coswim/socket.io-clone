@@ -5,7 +5,11 @@ import { Layout } from "../components";
 const RoomList = () => {
   const socket = io();
   useEffect(() => {
+    console.log("useEffect 실행");
     socket.emit("requireList");
+    socket.on("nameList", (nameList) => {
+      console.log(nameList);
+    });
   }, []);
   return <Layout></Layout>;
 };

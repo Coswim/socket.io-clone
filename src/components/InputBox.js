@@ -17,11 +17,10 @@ const InputBox = () => {
 
   // 입장 후 모든 소켓 join 하기
   const inputNameHandler = () => {
-    const inputName = inputRef.current.value;
+    let inputName = inputRef.current.value;
     if (inputName !== "") {
-      socket.emit("RoomEnter", inputName);
+      socket.emit("roomEnter", inputName, navigate);
       inputName = "";
-      // navigate("/room-list");
     } else {
       alert("이름을 입력해주세요");
     }
